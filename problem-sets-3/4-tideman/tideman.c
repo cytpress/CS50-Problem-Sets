@@ -30,6 +30,7 @@ bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
 void sort_pairs(void);
+bool dfs_cycle_check(int start, int current);
 void lock_pairs(void);
 void print_winner(void);
 
@@ -159,16 +160,31 @@ void sort_pairs(void)
     return;
 }
 
+bool dfs_cycle_check(int start_winner, int current_loser)
+{
+    if (current_loser == start_winner)
+    {
+        return true;
+    }
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (locked[current_loser][i])
+        {
+            if (dfs_cycle_check(start_winner, i))
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        if (locked[pairs[i].loser][pairs[i].winner] == locked[pairs[i].winner][pairs[i].loser] && locked[pairs[i].winner][pairs[i].loser] == true)
-        {
-            break;
-        }
-        else
+        if (!dfs_cycle_check(pairs[i].winner, pairs[i].loser))
             locked[pairs[i].winner][pairs[i].loser] = true;
     }
     return;
@@ -177,6 +193,20 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        int temp_count = 0;
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (locked[j][i] == true)
+            {
+                temp_count++;
+            }
+        }
+        if (temp_count == 0)
+        {
+            printf("%s\n",candidates[i]);
+        }
+    }
     return;
 }
