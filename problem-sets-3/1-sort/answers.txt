@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: 4.64 reversed; 0.33 sorted
+
+sort2 uses: Merge sort
+
+How do you know?: 0.27 reversed; 0.45 sorted
+
+sort3 uses: Selection sort
+
+How do you know?: 2.25 reversed; 1.99 sorted
