@@ -205,7 +205,7 @@ void print_winner(void)
         }
         if (temp_count == 0)
         {
-            printf("%s\n",candidates[i]);
+            printf("%s\n", candidates[i]);
         }
     }
     return;
