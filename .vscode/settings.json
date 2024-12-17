@@ -4,6 +4,8 @@
         "stdio.h": "c",
         "cs50.h": "c",
         "stdlib.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "stdint.h": "c",
+        "stdbool.h": "c"
     }
 }
