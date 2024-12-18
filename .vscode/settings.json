@@ -7,5 +7,9 @@
         "typeinfo": "c",
         "stdint.h": "c",
         "stdbool.h": "c"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
     }
 }
