@@ -1,0 +1,11 @@
+For first question:
+    Spotify must have their own data of the average energy, valence, and danceability.
+    We just calculate the average of energy, valence, and danceability from users' top100.
+    Then compare the data with Spotify's average, if the users' average energy is above 2 standard deviation from Spotify, we can assume that the user prefer fast-paced energetic songs, and so are valence and danceability.
+
+For second question:
+    Simple average might not be the best method in this case.
+    Weighted time played should be considered because songs played more often should have greater impact.
+    For example: the 100th played song may be played only once and it has the same influence as the 1st in the original method.
+
+    Also, there are a huge variety of songs, only 3 metrics cannot determine what a users' preference, and people tends to listen to certain songs in certain situation. These are not considered in the Audio Aura method.
