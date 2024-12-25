@@ -12,13 +12,6 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
     },
-    "sqltools.connections": [
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "Test",
-            "database": "problem-sets-7\\2-movies\\movies.db"
-        }
-    ],
+    "sqltools.connections": [],
     "sqltools.useNodeRuntime": true
 }
