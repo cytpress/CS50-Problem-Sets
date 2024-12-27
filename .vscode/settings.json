@@ -12,6 +12,13 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
     },
-    "sqltools.connections": [],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "birthdays\\birthdays.db",
+            "name": "pset9 birthday"
+        }
+    ],
     "sqltools.useNodeRuntime": true
 }

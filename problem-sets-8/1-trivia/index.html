@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <h3>What damage types does Path of Exile have?</h3>
+            <!-- TODO: Add multiple choice question here -->
+            <button class="checkChoice">Fire</button>
+            <button class="checkChoice">Cold</button>
+            <button class="checkChoice">Physical</button>
+            <button class="checkChoice">Spell</button>
+            <button class="checkChoice">Damage Over Time</button>
+            <p class="response"></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <h3>Who is the boss of Act2 in Path of Exile 2?</h3>
+            <!-- TODO: Add free response question here -->
+            <label for="freeResponse">Write your answer<br></label>
+            <input type="text" name="freeResponse" id="freeResponse">
+            <button type="submit" id="submitAnswer">submit</button>
+
+            <p class="response"></p>
+        </div>
+    </div>
+</body>
+<script>
+    // TODO: Add code to check answers to questions
+    let choices = document.querySelectorAll(".checkChoice");
+    let response = document.querySelectorAll(".response");
+    for (let i = 0; i < choices.length; i++) {
+        choices[i].addEventListener("click", function () {
+            let txt = choices[i].innerHTML;
+            if (txt == "Fire" || txt == "Cold" || txt == "Physical") {
+                choices[i].style.backgroundColor = "Green";
+                response[0].innerHTML = "Correct!";
+            } else {
+                choices[i].style.backgroundColor = "Red";
+                response[0].innerHTML = "Incorrect";
+            }
+
+        })
+    }
+    document.querySelector("#submitAnswer").addEventListener("click", function () {
+        let inputAnswer = document.querySelector("#freeResponse");
+        if (inputAnswer.value === "Doryani" || inputAnswer.value === "doryani") {
+            inputAnswer.style.backgroundColor = "Green";
+            response[1].innerHTML = "Correct!";
+        } else {
+            inputAnswer.style.backgroundColor = "Red";
+            response[1].innerHTML = "Incorrect";
+        }
+    })
+</script>
+
+</html>
