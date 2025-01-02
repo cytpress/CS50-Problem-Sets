@@ -149,15 +149,13 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    if request.method == "GET":
-        transactions = db.execute(
-            "SELECT symbol, shares, price, timestamp FROM transactions WHERE user_id=? GROUP BY timestamp DESC", session["user_id"]
-        )
+    transactions = []
+    transactions = db.execute(
+        "SELECT symbol, shares, price, timestamp FROM transactions WHERE user_id=? ORDER BY timestamp DESC",
+        session["user_id"],
+    )
 
-        transactions_dict_list = []
-        for trans in transactions:
-            
-        return render_template("history.html")
+    return render_template("history.html", transactions=transactions)
 
 
 @app.route("/login", methods=["GET", "POST"])

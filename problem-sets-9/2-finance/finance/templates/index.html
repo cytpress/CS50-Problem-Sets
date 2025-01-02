@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-History
+Index
 {% endblock %}
 
 {% block main %}
@@ -11,18 +11,28 @@ History
             <th class="text-start">Symbol</th>
             <th class="text-end">Shares</th>
             <th class="text-end">Price</th>
-            <th class="text-end">Transacted</th>
+            <th class="text-end">Total</th>
         </tr>
     </thead>
     <tbody>
-        {% for transaction in transactions %}
+        {% for stock in stock_list %}
         <tr>
-            <td class="text-start">{{ transaction.symbol }}</td>
-            <td class="text-end">{{ transaction.shares }}</td>
-            <td class="text-end">{{ transaction.current_price | usd }}</td>
-            <td class="text-end">{{ transaction.time }}</td>
+            <td class="text-start">{{ stock.symbol }}</td>
+            <td class="text-end">{{ stock.shares_owned }}</td>
+            <td class="text-end">{{ stock.current_price | usd }}</td>
+            <td class="text-end">{{ (stock.shares_owned * stock.current_price) | usd }}</td>
         </tr>
         {% endfor %}
     </tbody>
+    <tfoot>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="3">Cash</td>
+            <td class="border-0 text-end">{{ user_cash | usd }}</td>
+        </tr>
+        <tr>
+            <td class="border-0 fw-bold text-end" colspan="3">Total</td>
+            <td class="border-0 w-bold text-end">{{ total | usd }}</td>
+        </tr>
+    </tfoot>
 </table>
 {% endblock %}
